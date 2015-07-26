@@ -62,6 +62,7 @@ public class CharactersFragment extends android.support.v4.app.Fragment {
 
         ParseQuery<Character> bookParseQuery = ParseQuery.getQuery(Character.class);
         bookParseQuery.whereEqualTo("book", Core.selectedBook);
+        bookParseQuery.orderByAscending("name");
         bookParseQuery.findInBackground(new FindCallback<Character>() {
             public void done(List<Character> scoreList, ParseException e) {
                 if (e == null) {

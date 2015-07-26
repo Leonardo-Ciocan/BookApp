@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:padding="20dp"
+    android:minWidth="300dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:src="@drawable/ic_action_book"
+        android:layout_width="fill_parent"
+        android:layout_height="130dp" />
+    <TextView
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:text="Add another tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/name"
+        android:layout_margin="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tag name"/>
+
+    <TextView
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:text="Tag color"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    
+    <FrameLayout
+        android:id="@+id/tagColor"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"></FrameLayout>
+
+    <Button
+        android:text="Create tag"
+        android:id="@+id/create"
+        android:layout_margin="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

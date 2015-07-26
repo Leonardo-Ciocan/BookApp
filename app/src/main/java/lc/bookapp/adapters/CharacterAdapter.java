@@ -5,12 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import lc.bookapp.TagList;
 import lc.bookapp.models.*;
 import lc.bookapp.R;
 import lc.bookapp.models.Character;
@@ -21,6 +23,10 @@ public class CharacterAdapter extends ArrayAdapter<Character> {
 
     }
 
+
+    @Bind(R.id.tagContainer)
+    TagList tags;
+
     @Bind(R.id.name) TextView name;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -28,10 +34,12 @@ public class CharacterAdapter extends ArrayAdapter<Character> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate( R.layout.char_tile , null);
         }
-        ButterKnife.bind(convertView);
+        ButterKnife.bind(this , convertView);
+
         name = (TextView) convertView.findViewById(R.id.name);
         name.setText(Core.characters.get(position).getName() +" " + Core.characters.get(position).getLastName());
 
+       tags.setList(getItem(position).getTags());
         return convertView;
     }
 }

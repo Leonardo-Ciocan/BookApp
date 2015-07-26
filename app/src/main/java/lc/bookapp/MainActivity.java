@@ -1,6 +1,7 @@
 package lc.bookapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -33,12 +34,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         newBookDialog= new NewBookDialog(this);
         super.onCreate(savedInstanceState);
-
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.brand));
+        }
         Parse.enableLocalDatastore(this);
 
         ParseObject.registerSubclass(Book.class);
+        ParseObject.registerSubclass(Tag.class);
         ParseObject.registerSubclass(lc.bookapp.models.Character.class);
-        Parse.initialize(this, "ipVyo9ZoDfz4klE7P6GWR3izeVeCYR9nr3nvqlTM", "TYKaiNtXGmDSWy4sZ0dgDolABFgNjMaiVEuEHuZu");
+        Parse.initialize(this, "ipVyo9ZoDfz4klE7P6GWR3izeVeCYR9nr3nvqlTM",
+                               "TYKaiNtXGmDSWy4sZ0dgDolABFgNjMaiVEuEHuZu");
 
 
         if(ParseUser.getCurrentUser() == null){
@@ -57,6 +62,7 @@ public class MainActivity extends ActionBarActivity {
 
         ParseQuery<Book> bookParseQuery = ParseQuery.getQuery(Book.class);
         bookParseQuery.whereEqualTo("user",ParseUser.getCurrentUser());
+        bookParseQuery.orderByAscending("name");
         bookParseQuery.findInBackground(new FindCallback<Book>() {
             public void done(List<Book> scoreList, ParseException e) {
                 if (e == null) {
@@ -80,6 +86,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
