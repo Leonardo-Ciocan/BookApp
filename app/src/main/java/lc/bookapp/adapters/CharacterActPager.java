@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import lc.bookapp.fragments.CharacterBasicFragment;
 import lc.bookapp.fragments.CharacterTagFragment;
+import lc.bookapp.fragments.LocationsFragment;
 import lc.bookapp.fragments.OverviewFragment;
 
 public class CharacterActPager extends FragmentStatePagerAdapter {
@@ -21,7 +22,7 @@ public class CharacterActPager extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     String[] data = {"Basic" , "Tags" , "Relations"};

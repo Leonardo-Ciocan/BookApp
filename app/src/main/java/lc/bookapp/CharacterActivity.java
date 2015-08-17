@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.ViewParent;
 
 import lc.bookapp.adapters.CharacterActPager;
+import lc.bookapp.fragments.CharactersFragment;
 import lc.bookapp.models.Core;
 
 
@@ -45,7 +46,11 @@ public class CharacterActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.delete) {
+            CharactersFragment.adapter.remove(Core.selectedCharacter);
+            Core.selectedCharacter.deleteInBackground();
+            Core.selectedCharacter = null;
+            finish();
             return true;
         }
 

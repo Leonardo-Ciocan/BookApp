@@ -37,21 +37,21 @@ public class TagList extends View {
         p.setColor(Color.RED);
         p.setStrokeWidth(2);
         super.onDraw(canvas);
-        float unit = convertDpToPixel(20);
+        float unit = convertDpToPixel(10);
         for(int x =0; x < t.size() ; x++){
             try {
                 t.get(x).fetchIfNeeded();
                 p.setStyle(Paint.Style.FILL);
                 p.setColor(Integer.parseInt(t.get(x).getColor()));
                 canvas.drawCircle(
-                        x * unit + convertDpToPixel(25) + convertDpToPixel(5) * x,
+                        x * unit + convertDpToPixel(15) + convertDpToPixel(5) * x,
                         unit / 1.9f,
                         unit / 2,
                         p);
                 p.setStyle(Paint.Style.STROKE);
-                p.setColor(Color.DKGRAY);
+                p.setColor(Color.GRAY);
                 canvas.drawCircle(
-                        x * unit + convertDpToPixel(25) + convertDpToPixel(5) * x,
+                        x * unit + convertDpToPixel(15) + convertDpToPixel(5) * x,
                         unit / 1.9f,
                         unit / 2,
                         p);

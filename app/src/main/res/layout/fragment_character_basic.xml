@@ -6,6 +6,8 @@
     tools:context="lc.bookapp.fragments.CharacterBasicFragment">
 
     <LinearLayout
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

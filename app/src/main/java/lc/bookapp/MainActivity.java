@@ -39,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         }
         Parse.enableLocalDatastore(this);
 
+        ParseObject.registerSubclass(Location.class);
         ParseObject.registerSubclass(Book.class);
         ParseObject.registerSubclass(Tag.class);
         ParseObject.registerSubclass(lc.bookapp.models.Character.class);

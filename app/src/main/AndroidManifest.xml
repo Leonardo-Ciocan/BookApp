@@ -27,6 +27,10 @@
             android:name=".CharacterActivity"
             android:label="@string/title_activity_character" >
         </activity>
+        <activity
+            android:name=".LocationActivity"
+            android:label="@string/title_activity_location" >
+        </activity>
     </application>
 
 </manifest>

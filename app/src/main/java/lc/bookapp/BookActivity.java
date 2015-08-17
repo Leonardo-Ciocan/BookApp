@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import lc.bookapp.dialogs.NewCharacterDialog;
 import lc.bookapp.fragments.CharactersFragment;
+import lc.bookapp.fragments.LocationsFragment;
 import lc.bookapp.fragments.OverviewFragment;
 import lc.bookapp.models.Core;
 
@@ -68,6 +69,7 @@ public class BookActivity extends ActionBarActivity {
         fragments = new ArrayList<>();
         fragments.add(new OverviewFragment());
         fragments.add(new CharactersFragment());
+        fragments.add(new LocationsFragment());
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, fragments.get(0)).commit();
@@ -123,6 +125,9 @@ public class BookActivity extends ActionBarActivity {
         if(id == R.id.action_new){
             if(selected == 1){
                 ((CharactersFragment)fragments.get(1)).showDialog();
+            }
+            else if(selected == 2){
+                ((LocationsFragment)fragments.get(2)).showDialog();
             }
         }
 

@@ -58,6 +58,9 @@ public class CharacterTagFragment extends android.support.v4.app.Fragment {
 
     @Bind(R.id.listview)
     ListView listView;
+
+
+
     CharSequence choices[] = new CharSequence[] {"Add existing tags" , "Create new tag"};
 
 
@@ -67,6 +70,8 @@ public class CharacterTagFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_character_tag, container, false);
         ButterKnife.bind(this , v);
+
+
         adapter = new TagAdapter(getActivity() , Core.selectedCharacter.getTags());
 
         dialog = new TagDialog(getActivity() , adapter);
