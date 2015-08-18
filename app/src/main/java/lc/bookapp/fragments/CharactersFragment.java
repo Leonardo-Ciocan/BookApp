@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import lc.bookapp.CharacterActivity;
 import lc.bookapp.R;
 import lc.bookapp.adapters.BookAdapter;
@@ -57,7 +58,7 @@ public class CharactersFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_characters, container, false);
 
-        ButterKnife.bind(v);
+        ButterKnife.bind(this,v);
         gridview = (GridView) v.findViewById(R.id.gridview);
 
         ParseQuery<Character> bookParseQuery = ParseQuery.getQuery(Character.class);
@@ -109,7 +110,10 @@ public class CharactersFragment extends android.support.v4.app.Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
     NewCharacterDialog dialog;
+
+    @OnClick(R.id.add)
     public void showDialog(){
         if(dialog == null){
             dialog = new NewCharacterDialog(getActivity() , adapter);

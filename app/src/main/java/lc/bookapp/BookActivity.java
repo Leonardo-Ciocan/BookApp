@@ -126,14 +126,7 @@ public class BookActivity extends ActionBarActivity {
             return true;
         }
 
-        if(id == R.id.action_new){
-            if(selected == 1){
-                ((CharactersFragment)fragments.get(1)).showDialog();
-            }
-            else if(selected == 2){
-                ((LocationsFragment)fragments.get(2)).showDialog();
-            }
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

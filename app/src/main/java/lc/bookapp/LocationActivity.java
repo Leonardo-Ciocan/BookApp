@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.r0adkll.slidr.Slidr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,9 @@ public class LocationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        int primary = getResources().getColor(R.color.brand);
+        int secondary = getResources().getColor(R.color.brandDark);
+        Slidr.attach(this, primary, secondary);
 
         ButterKnife.bind(this);
 

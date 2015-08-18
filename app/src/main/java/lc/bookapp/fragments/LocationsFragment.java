@@ -18,6 +18,8 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import lc.bookapp.CharacterActivity;
 import lc.bookapp.LocationActivity;
 import lc.bookapp.R;
@@ -53,6 +55,8 @@ public class LocationsFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_locations, container, false);
+        ButterKnife.bind(this, v);
+
         final GridView g = (GridView) v.findViewById(R.id.gridview);
         LocationAdapter a = new LocationAdapter(getActivity() , Core.locations);
         g.setAdapter(a);
@@ -90,6 +94,7 @@ public class LocationsFragment extends android.support.v4.app.Fragment {
     }
 
     NewLocationDialog dialog;
+    @OnClick(R.id.add)
     public void showDialog(){
         if(dialog == null){
             dialog = new NewLocationDialog(getActivity() , adapter , null);
