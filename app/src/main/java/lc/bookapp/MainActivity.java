@@ -42,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
         ParseObject.registerSubclass(Location.class);
         ParseObject.registerSubclass(Book.class);
         ParseObject.registerSubclass(Tag.class);
+        ParseObject.registerSubclass(Event.class);
         ParseObject.registerSubclass(lc.bookapp.models.Character.class);
         Parse.initialize(this, "ipVyo9ZoDfz4klE7P6GWR3izeVeCYR9nr3nvqlTM",
                                "TYKaiNtXGmDSWy4sZ0dgDolABFgNjMaiVEuEHuZu");

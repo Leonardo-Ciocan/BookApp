@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import lc.bookapp.R;
+import lc.bookapp.SquareView;
 import lc.bookapp.models.Book;
 
 public class BookAdapter extends ArrayAdapter<Book> {
@@ -25,6 +26,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate( R.layout.book_tile , null);
+            //convertView = new SquareView(getContext() , R.layout.book_tile);
         }
         CardView cardView = (CardView)convertView.findViewById(R.id.card_view);
         Random rnd = new Random();

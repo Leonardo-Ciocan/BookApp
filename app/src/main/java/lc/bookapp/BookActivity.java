@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import lc.bookapp.dialogs.NewCharacterDialog;
 import lc.bookapp.fragments.CharactersFragment;
+import lc.bookapp.fragments.EventFragment;
 import lc.bookapp.fragments.LocationsFragment;
 import lc.bookapp.fragments.OverviewFragment;
 import lc.bookapp.models.Core;
@@ -42,6 +43,7 @@ public class BookActivity extends ActionBarActivity {
     int selected = 0;
     private ArrayList<Fragment> fragments;
 
+    String[] names = new String[]{"Overview" , "Characters" , "Locations" , "Events"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +72,7 @@ public class BookActivity extends ActionBarActivity {
         fragments.add(new OverviewFragment());
         fragments.add(new CharactersFragment());
         fragments.add(new LocationsFragment());
+        fragments.add(new EventFragment());
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, fragments.get(0)).commit();
@@ -82,7 +85,7 @@ public class BookActivity extends ActionBarActivity {
                         new PrimaryDrawerItem().withName("Overview"),
                         new PrimaryDrawerItem().withName("Characters"),
                         new PrimaryDrawerItem().withName("Locations"),
-                        new PrimaryDrawerItem().withName("Notes"),
+                        new PrimaryDrawerItem().withName("Events"),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName("Settings")
                 )
@@ -93,6 +96,7 @@ public class BookActivity extends ActionBarActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, fragments.get(position))
                                 .commit();
+                        getSupportActionBar().setTitle(names[position]);
                         return false;
                     }
                 })

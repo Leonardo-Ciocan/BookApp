@@ -41,6 +41,9 @@ public class LocationActivity extends ActionBarActivity {
     @Bind(R.id.childrenLocations)
     GridView childrenLocations;
 
+    @Bind(R.id.locationHeader)
+    TextView locationHeader;
+
     Location current;
     private LocationAdapter adapter;
 
@@ -78,6 +81,8 @@ public class LocationActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
+
+        locationHeader.setText("LOCATIONS IN " + current.getName().toUpperCase());
     }
 
     @OnTextChanged(R.id.description)

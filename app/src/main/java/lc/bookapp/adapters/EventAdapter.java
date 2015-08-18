@@ -1,7 +1,6 @@
 package lc.bookapp.adapters;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -10,16 +9,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import lc.bookapp.R;
 import lc.bookapp.SquareView;
-import lc.bookapp.TagList;
-import lc.bookapp.models.*;
-import lc.bookapp.models.Character;
+import lc.bookapp.models.Event;
+import lc.bookapp.models.Location;
 
-public class LocationAdapter extends ArrayAdapter<Location> {
-    public LocationAdapter(Context context , ArrayList<Location> books){
-        super(context, R.layout.location_tile, books);
+public class EventAdapter  extends ArrayAdapter<Event> {
+    public EventAdapter(Context context , ArrayList<Event> books){
+        super(context, R.layout.event_tile, books);
 
     }
 
@@ -31,7 +28,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         if(convertView == null){
             //LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             //convertView = inflater.inflate( R.layout.location_tile , null);
-            convertView = new SquareView(getContext() , R.layout.location_tile);
+            convertView = new SquareView(getContext() , R.layout.event_tile);
         }
 
         name = (TextView) convertView.findViewById(R.id.name);
@@ -40,3 +37,4 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         return convertView;
     }
 }
+
